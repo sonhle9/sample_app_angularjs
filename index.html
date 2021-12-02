@@ -1,56 +1,179 @@
+
 <!DOCTYPE html>
-<html data-ng-app="productsApp">
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Simple CRUD operation in AngularJS</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+  <head>
+    <title>Ruby on Rails Tutorial Sample App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="Cf6/FTzVUYWef88WQwU7UHRniEp3hliIkvIU8Haddkicpi7ylp/euk+jmuoJpZG/2XJqVioJ+pgJRtbXZgsb3A==" />
+    
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
+    <!-- <link rel="stylesheet" media="all" href="/assets/application-957e878abe033d4baa1104d1a928d12f137ef6d3f879096753ca81675fc9c050.css" data-turbolinks-track="reload" />
+    <script src="/packs/js/application-6634062aff8ca9c36b8b.js" data-turbolinks-track="reload"></script>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css"> -->
+    <link rel="stylesheet" href="css/main.css">
 
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <div class="container">
-            <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Product</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+    <!-- <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script> -->
+    <!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+  </script>
+<![endif]-->
 
-                <a href="#">
-                    <img src="img/angularJs.png" alt="AngularJS in Yii">
-                </a>
-            </div>
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <a id="logo" href="/">sample app</a>
+    <nav>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
+          id="bs-example-navbar-collapse-1">
+        <li><a href="/">Home</a></li>
+        <li><a href="/help">Help</a></li>
+          <li><a href="/users">Users</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/users/117">Profile</a></li>
+              <li><a href="/users/117/edit">Settings</a></li>
+              <li class="divider"></li>
+              <li>
+                <a rel="nofollow" data-method="delete" href="/logout">Log out</a>
+              </li>
+            </ul>
+          </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-            <h2>Simple CRUD operation in AngularJS.</h2>
+    <div class="container">
+        <div class="alert alert-success">Micropost created!</div>
+        <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <a href="/users/117"><img alt="Memphis" class="gravatar" src="https://secure.gravatar.com/avatar/cacb9adf6927b855f6eeac2ca0e27d52?s=50" /></a>
+<h1>Memphis</h1>
+<span><a href="/users/117">view my profile</a></span>
+<span>2 microposts</span>
 
-            <p class="alert alert-warning">This is only Demo. You can download the code from <a href="">repo</a> </p>
+      </section>
+      <section class="stats">
+        <div class="stats">
+  <a href="/users/117/following">
+    <strong id="following" class="stat">
+      0
+    </strong>
+    following
+  </a>
+  <a href="/users/117/followers">
+    <strong id="followers" class="stat">
+      0
+    </strong>
+    followers
+  </a>
+</div>
 
+      </section>
+      <section class="micropost_form">
+        <form enctype="multipart/form-data" action="/microposts" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="ZW5BMMtuoKH8x6xJq7WpBV26qM/amL0kQGkgI7mpfQq7T/qFYHXovHmMzFpJrXT6d4YIQbahotv6dpK26fuYEg==" />
+  
+  <div class="field">
+    <textarea placeholder="Compose new micropost..." name="micropost[content]" id="micropost_content">
+</textarea>
+  </div>
+  <input type="submit" name="commit" value="Post" class="btn btn-primary" data-disable-with="Post" />
+  <span class="image">
+    <input accept="image/jpeg,image/gif,image/png" type="file" name="micropost[image]" id="micropost_image" />
+  </span>
+</form>
+<script type="text/javascript">
+  $("#micropost_image").bind("change", function() {
+    const size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert("Maximum file size is 5MB. Please choose a smaller file.");
+      $("#micropost_image").val("");
+    }
+  });
+</script>
 
-            <h3>Add Product</h3>
-            <div data-ng-view></div>
-            <div class="footer">
-                <p>&copy; StreetCoder 2014</p>
-            </div>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Micropost Feed</h3>
+        <ol class="microposts">
+    <li id="micropost-308">
+  <a href="/users/117"><img alt="Memphis" class="gravatar" src="https://secure.gravatar.com/avatar/cacb9adf6927b855f6eeac2ca0e27d52?s=50" /></a>
+  <span class="user"><a href="/users/117">Memphis</a></span>
+  <span class="content">
+    sdsad
+    <img src="img/img-post1.png" />
+  </span>
+  <span class="timestamp">
+    Posted less than a minute ago.
+      <a data-confirm="You sure?" rel="nofollow" data-method="delete" href="/microposts/308">delete</a>
+  </span>
+</li>
+<li id="micropost-307">
+  <a href="/users/117"><img alt="Memphis" class="gravatar" src="https://secure.gravatar.com/avatar/cacb9adf6927b855f6eeac2ca0e27d52?s=50" /></a>
+  <span class="user"><a href="/users/117">Memphis</a></span>
+  <span class="content">
+    dsad
+    
+  </span>
+  <span class="timestamp">
+    Posted less than a minute ago.
+      <a data-confirm="You sure?" rel="nofollow" data-method="delete" href="/microposts/307">delete</a>
+  </span>
+</li>
 
-        </div> <!-- /container -->
+  </ol>
+  
+
+    </div>
+  </div>
+
+      <footer class="footer">
+  <small>
+    The <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+    by <a href="https://www.michaelhartl.com/">Michael Hartl</a>
+  </small>
+  <nav>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="https://news.railstutorial.org/">News</a></li>
+    </ul>
+  </nav>
+</footer>
+
+      
+    </div>
+
+    <!-- <code class="debug_dump">#&lt;ActionController::Parameters {&quot;controller&quot;=&gt;&quot;static_pages&quot;, &quot;action&quot;=&gt;&quot;home&quot;} permitted: false&gt;</code> -->
+        </div>
+      <script async nonce="" type="text/javascript" id="mini-profiler" src="/mini-profiler-resources/includes.js?v=35a79b300ab5afa978cb59af0b05e059" data-css-url="/mini-profiler-resources/includes.css?v=35a79b300ab5afa978cb59af0b05e059" data-version="35a79b300ab5afa978cb59af0b05e059" data-path="/mini-profiler-resources/" data-current-id="nhk235j8bfm1p5uvtakr" data-ids="nhk235j8bfm1p5uvtakr" data-horizontal-position="left" data-vertical-position="top" data-trivial="false" data-children="false" data-max-traces="20" data-controls="false" data-total-sql-count="false" data-authorized="true" data-toggle-shortcut="alt+p" data-start-hidden="false" data-collapse-results="true" data-html-container="body" data-hidden-custom-fields="" data-turbo-permanent="false"></script>
+    
 
         <!--  vendor lib -->
         <script src="js/angular.js"></script>
         <script src="js/angular-route.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 
         <!-- UI Libs -->
@@ -61,5 +184,5 @@
         <script src="app/app.js"></script>
         <script src="app/controllers/controllers.js"></script>
         <script src="app/services/productsServices.js"></script>
-    </body>
+  </body>
 </html>
