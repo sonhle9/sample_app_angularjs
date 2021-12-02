@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html ng-app>
   <head>
     <title>Ruby on Rails Tutorial Sample App</title>
     <meta charset="utf-8">
@@ -63,7 +63,7 @@
 </header>
 
     <div class="container">
-        <div class="alert alert-success">Micropost created!</div>
+        <!-- <div class="alert alert-success">Micropost created!</div> -->
         <div class="row">
     <aside class="col-md-4">
       <section class="user_info">
@@ -114,8 +114,11 @@
 
       </section>
     </aside>
+    <!-- <div ng-controller="AppController">
+      <p>{{ name }}</p>
+    </div> -->
     <div class="col-md-8">
-      <h3>Micropost Feed</h3>
+      <h3>{{ "name" + "my" }}</h3>
         <ol class="microposts">
     <li id="micropost-308">
   <a href="/users/117"><img alt="Memphis" class="gravatar" src="https://secure.gravatar.com/avatar/cacb9adf6927b855f6eeac2ca0e27d52?s=50" /></a>
@@ -167,22 +170,23 @@
 
     <!-- <code class="debug_dump">#&lt;ActionController::Parameters {&quot;controller&quot;=&gt;&quot;static_pages&quot;, &quot;action&quot;=&gt;&quot;home&quot;} permitted: false&gt;</code> -->
         </div>
-      <script async nonce="" type="text/javascript" id="mini-profiler" src="/mini-profiler-resources/includes.js?v=35a79b300ab5afa978cb59af0b05e059" data-css-url="/mini-profiler-resources/includes.css?v=35a79b300ab5afa978cb59af0b05e059" data-version="35a79b300ab5afa978cb59af0b05e059" data-path="/mini-profiler-resources/" data-current-id="nhk235j8bfm1p5uvtakr" data-ids="nhk235j8bfm1p5uvtakr" data-horizontal-position="left" data-vertical-position="top" data-trivial="false" data-children="false" data-max-traces="20" data-controls="false" data-total-sql-count="false" data-authorized="true" data-toggle-shortcut="alt+p" data-start-hidden="false" data-collapse-results="true" data-html-container="body" data-hidden-custom-fields="" data-turbo-permanent="false"></script>
+      <!-- <script async nonce="" type="text/javascript" id="mini-profiler" src="/mini-profiler-resources/includes.js?v=35a79b300ab5afa978cb59af0b05e059" data-css-url="/mini-profiler-resources/includes.css?v=35a79b300ab5afa978cb59af0b05e059" data-version="35a79b300ab5afa978cb59af0b05e059" data-path="/mini-profiler-resources/" data-current-id="nhk235j8bfm1p5uvtakr" data-ids="nhk235j8bfm1p5uvtakr" data-horizontal-position="left" data-vertical-position="top" data-trivial="false" data-children="false" data-max-traces="20" data-controls="false" data-total-sql-count="false" data-authorized="true" data-toggle-shortcut="alt+p" data-start-hidden="false" data-collapse-results="true" data-html-container="body" data-hidden-custom-fields="" data-turbo-permanent="false"></script> -->
     
 
         <!--  vendor lib -->
-        <script src="js/angular.js"></script>
-        <script src="js/angular-route.js"></script>
+        <!-- <script src="js/angular.js"></script>
+        <script src="js/angular-route.js"></script> -->
         <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 
         <!-- UI Libs -->
         <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
+        <!-- <script src="js/main.js"></script> -->
 
         <!-- App libs -->
-        <script src="app/app.js"></script>
-        <script src="app/controllers/controllers.js"></script>
-        <script src="app/services/productsServices.js"></script>
+        <script type="text/javascript" src="app/app.js"></script>
+        <!-- <script src="app/controllers/controllers.js"></script>
+        <script src="app/services/productsServices.js"></script> -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
   </body>
 </html>
